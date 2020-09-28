@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cesium man Walks</title>
+
+
+    <!-- import the webpage's javascript files -->
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras@3.3.0/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/cfe5f316/dist/aframe-extras.js"></script>
+    <script src="/src/app.js"></script>
+
+</head>
+
+<body>
+    <a-scene>
+        <a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity>
+        <a-camera ar-raycaster raycaster cursor="fuse:false" position="0 1.6 0"> </a-camera>
+        <a-ring id="cursor" radius-inner="0.1" radius-outer="0.2" color="teal" position="0 -0 -5" rotation="-90 0 0">
+        </a-ring>
+
+        <a-entity id='sifao' animation="property: rotation; to: 0 360 0; loop: true; dur: 10000" gltf-model="./assets/sifaoFlutua.glb" event-set__enter="_event: mouseenter; color: #8FF7FF" scale="7 7 7 ">
+
+
+        </a-entity>
+
+        <a-entity geometry="primitive: box" material="color: red" animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 100" ; animation__mouseleave="property: components.material.material.color; type: color; to: red; startEvents: mouseleave; dur: 500"
+            ;> </a-entity>
+    </a-scene>
+
+</body>
+
+</html>
